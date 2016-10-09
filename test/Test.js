@@ -40,3 +40,12 @@ PalettoTestCase.prototype.testStory6 = function(){
   assertTrue(engineTest.nextPlayer() == "B");
 
 }
+
+PalettoTestCase.prototype.testStory7 = function(){
+
+    engineTest.playMarbles("a1");
+    var board = engineTest.getGameArea();
+    assertTrue(board[0][0]=="B");
+    assertTrue(engineTest.getMarbles() == 2);
+
+}
