@@ -52,18 +52,23 @@ var Engine = function () {
         vReturn = true;gameArea[x][y]=marbleColor; nbMarbles++;
 
         }
+        else {
+
+           console.log("Impossible, cet emplacement est déjà occupé");
+        };
 
         return vReturn;
     }
 
 
-    var DeltaX = new Array(0,0,0,3,3);
-    var DeltaY = new Array(0,0,3,0,3);
-    var ordreHoraire = [6,3,0,7,4,1,8,5,2];
-    var ordreAntihoraire = [2,5,8,1,4,7,0,3,6];
-    var position = 0;
+
 
     this.rotation = function(board, degree){
+        var DeltaX = new Array(0,0,0,3,3);
+        var DeltaY = new Array(0,0,3,0,3);
+        var ordreHoraire = [6,3,0,7,4,1,8,5,2];
+        var ordreAntihoraire = [2,5,8,1,4,7,0,3,6];
+        var position = 0;
 
         var tab_temp = new Array("0","0","0","0","0","0","0","0","0");
         tab_temp[0] = gameArea[0+DeltaX[board]][0+DeltaY[board]];

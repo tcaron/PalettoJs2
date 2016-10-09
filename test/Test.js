@@ -49,3 +49,21 @@ PalettoTestCase.prototype.testStory7 = function(){
     assertTrue(engineTest.getMarbles() == 2);
 
 }
+
+PalettoTestCase.prototype.testStory8 = function(){
+
+
+    engineTest.rotation(1,-90);
+    var board = engineTest.getGameArea();
+    assertTrue(board[0][0]=="W");
+    assertTrue(board[2][0]=="B");
+
+}
+
+PalettoTestCase.prototype.testStory9 = function(){
+
+     engineTest.nextPlayer();
+     engineTest.playMarbles("a3");
+     assertTrue(engineTest.nextPlayer() == "W");
+
+}
