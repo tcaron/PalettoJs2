@@ -67,3 +67,52 @@ PalettoTestCase.prototype.testStory9 = function(){
      assertTrue(engineTest.nextPlayer() == "W");
 
 }
+
+PalettoTestCase.prototype.testStory10 = function(){
+
+    engineTest.playMarbles("b1");
+    engineTest.rotation(1,90);
+
+    engineTest.nextPlayer();
+    engineTest.playMarbles("a2");
+    engineTest.rotation(1,-90);
+
+    engineTest.nextPlayer();
+    engineTest.playMarbles("c1");
+    engineTest.rotation(1,90);
+
+    engineTest.nextPlayer();
+    engineTest.playMarbles("a3");
+    engineTest.rotation(1,-90);
+
+    engineTest.nextPlayer();
+    engineTest.playMarbles("d1");
+    engineTest.rotation(2,-90);
+
+    engineTest.nextPlayer();
+    engineTest.playMarbles("f3");
+    engineTest.rotation(2,90)
+
+
+    var board = engineTest.getGameArea();
+    assertTrue(board[0][0] == "W");
+    assertTrue(board[0][1] == "W");
+    assertTrue(board[0][2] == "W");
+    assertTrue(board[0][3] == "W");
+
+    assertTrue(board[2][0] == "B");
+    assertTrue(board[2][1] == "B");
+    assertTrue(board[2][2] == "B");
+    assertTrue(board[2][3] == "B");
+
+    assertTrue(engineTest.getMarbles() == 8);
+}
+
+PalettoTestCase.prototype.testStory11 = function() {
+
+    engineTest.nextPlayer();
+    engineTest.playMarbles("e1");
+    var board = engineTest.getGameArea();
+    assertTrue(engineTest.getAlign(0,"W"));
+}
+
