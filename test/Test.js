@@ -13,7 +13,7 @@ PalettoTestCase.prototype.testStory1 = function () {
 
 PalettoTestCase.prototype.testStory2 = function () {
 
-  assertTrue(engineTest.beginner()==1);
+  assertTrue(engineTest.getPlayerWhitePlay());
 
 };
 
@@ -112,7 +112,60 @@ PalettoTestCase.prototype.testStory11 = function() {
 
     engineTest.nextPlayer();
     engineTest.playMarbles("e1");
-    var board = engineTest.getGameArea();
     assertTrue(engineTest.getAlign(0,"W"));
+}
+
+// on recommence une partie
+var engineTest2 = new Engine();
+
+PalettoTestCase.prototype.testStory12 = function(){
+   var board = engineTest2.getGameArea();
+
+    engineTest2.playWithText("c4cbl",3);
+    engineTest2.nextPlayer();
+    engineTest2.playWithText("d4abr",3);
+    engineTest2.playWithText("c3ctl",2);
+    engineTest2.nextPlayer();
+    engineTest2.playWithText("c3ctl",2);
+    engineTest2.nextPlayer();
+    engineTest2.playWithText("c4cbl",3);
+    engineTest2.nextPlayer();
+    engineTest2.playWithText("e5cbr",2);
+    engineTest2.nextPlayer();
+    engineTest2.playWithText("b1ctl",1);
+    engineTest2.nextPlayer();
+    engineTest2.playWithText("b2ctr",1);
+    engineTest2.nextPlayer();
+    engineTest2.playWithText("c4cbl",3);
+    engineTest2.nextPlayer();
+    engineTest2.playWithText("c3");
+
+    assertTrue(engineTest2.checkDiagonal("B"));
+
+}
+
+//on recommence encore une partie
+var engineTest3 = new Engine();
+PalettoTestCase.prototype.testStory13 = function(){
+
+    assertTrue(engineTest3.beginner() == "B");
+
+}
+
+//on recommence encore une partie
+var engineTest5 = new Engine();
+PalettoTestCase.prototype.testStory14 = function(){
+
+    engineTest5.setMarbles(36);
+    assertTrue(!engineTest5.checkDrawing());
+
+}
+
+//on recommence encore une partie
+var engineTest4 = new Engine();
+PalettoTestCase.prototype.testStory15 = function () {
+
+    assertTrue(engineTest4.wrongMarble("B"));
+
 }
 

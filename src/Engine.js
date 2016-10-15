@@ -12,18 +12,21 @@ var Engine = function () {
         { gameArea[i][j] = "X";}
     }
 
-    //retourne le plateau de jeu
     this.getGameArea = function(){
       console.log(gameArea);return gameArea;};
 
-    //retourne le nombre de billes sur le plateau
+
     this.getMarbles = function(){
         console.log(nbMarbles);return nbMarbles;};
 
-    //retourne le joueur qui commence
     this.beginner = function(){
-     return playerWhitePlay;};
+      var player =  this.whoIsPlaying();
+     return player;};
 
+     this.getPlayerWhitePlay = function (){
+
+         return playerWhitePlay;
+     }
 
     this.whoIsPlaying=function(){
         var color = "B";
@@ -31,8 +34,6 @@ var Engine = function () {
         {playerWhitePlay = false;color = "W";}
         else{playerWhitePlay= true; color = "B";}
         return color;};
-
-
 
     this.nextPlayer = function(){
         var marbleColor = "B";
@@ -49,7 +50,7 @@ var Engine = function () {
         var x = location.charCodeAt(1) - 49;
         var y = location.charCodeAt(0) - 97;
         if (gameArea[x][y] == "X"){
-        vReturn = true;gameArea[x][y]=marbleColor; nbMarbles++;}
+        vReturn = true;gameArea[x][y]=marbleColor; nbMarbles++; }
         else{ console.log("Impossible, cet emplacement est déjà occupé");}
         return vReturn;
 
@@ -75,10 +76,93 @@ var Engine = function () {
     this.getAlign = function (board, marbleColor) {
 
         var marbles = 0;
+        var win = false;
         for(var indX = 0; indX < 6; indX++){ if(gameArea[board][indX] == marbleColor){ marbles++; }}
         if((marbles >= 5) && (gameArea[board][0] != "W") || (marbles >= 5) && (gameArea[board][5] != "W"))
-        {console.log("Le joueur "+marbleColor+" a gagner "); return true;}
+        {console.log("Le joueur "+marbleColor+" a gagner "); win = true;}
+        return win;
     }
+
+    this.displayArea=function(){
+        var ligne = "";
+        for(var i = 0; i < 6 ; i++)
+        {
+            if(i==3)
+                console.log(" ");
+            for(var j = 0; j < 6 ; j++)
+            {
+                if(j == 3)
+                    ligne = ligne +" ";
+                ligne =  ligne + "["+gameArea[i][j]+"]";
+            }
+            console.log(ligne);
+            ligne = "";
+        }
+    }
+
+
+    this.wrongMarble = function (color) {
+        var error = true;
+        if (playerWhitePlay && color == "B") {
+
+           // throw "erreur"; stop les test
+        console.log("En tant que joueur blanc vous ne pouvez pas jouer une bille noire");
+        }
+
+        else {
+            console.log("En tant que joueur noir vous ne pouvez pas jouer une bille blanche");
+           // throw "erreur";
+        }
+        return error;
+    }
+
+
+    this.playWithText = function (text, numBoard){
+
+        var cmd = text.split(";");
+        var location = text.substring(0,2); var rotation = text.substring(2,3);
+        this.playMarbles(location);
+         if (rotation == "c"){ this.rotation(numBoard,90);}
+         if (rotation == "a"){ this.rotation(numBoard,-90);}
+
+    };
+
+    this.setMarbles = function (newNbMarbles){
+
+        newNbMarbles  = nbMarbles;
+    }
+
+    this.checkDrawing = function (){
+      var drawing = false;
+
+        for (var i = 0 ; i < gameArea ;i++)
+        if (this.getMarbles() == 36 && !this.checkDiagonal("W") || !this.checkDiagonal("B")
+            || !this.getAlign(i,"W") || !this.getAlign(i,"B")){
+
+            console.log("match nul");
+            drawing = true;
+        }
+
+     return drawing;
+    }
+    this.checkDiagonal = function(color){
+
+        var count = 1;
+        var win = false;
+        if (gameArea[0][0] == color) {
+            for (var i = 1; i < gameArea.length; i++) {
+
+                for (var j = 1; j < gameArea[i].length; j++) {
+
+                    if (gameArea[i][j] == color) {
+
+                        count++;
+                    } } } }
+       if (count >= 5){console.log("le joueur "+color+" a gagné"); win = true;}
+       else {console.log("aucune diagonale de trouvé");}
+     return win;
+    };
+
 };
 
 
