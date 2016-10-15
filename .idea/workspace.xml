@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6856a209-9b5a-4d44-868d-f2677af0c320" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Engine.js" afterPath="$PROJECT_DIR$/src/Engine.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/Test.js" afterPath="$PROJECT_DIR$/test/Test.js" />
     </list>
     <ignored path="PalettoTC2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -243,7 +241,7 @@
       <workItem from="1476298575973" duration="4767000" />
       <workItem from="1476378072566" duration="10240000" />
       <workItem from="1476515640612" duration="2750000" />
-      <workItem from="1476518448702" duration="3456000" />
+      <workItem from="1476518448702" duration="3469000" />
     </task>
     <task id="LOCAL-00001" summary="Histoire 11 + re-factorisation du code">
       <created>1476090557137</created>
@@ -259,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1476518500828</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Histoire 16">
+      <created>1476522533049</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1476522533049</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -295,7 +300,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52613000" />
+    <option name="totallyTimeSpent" value="52626000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1368" height="741" extended-state="6" />
@@ -335,7 +340,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Histoire 11 + re-factorisation du code" />
     <MESSAGE value="Histoire 15 + re-factorisation du code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Histoire 15 + re-factorisation du code" />
+    <MESSAGE value="Histoire 16" />
+    <option name="LAST_COMMIT_MESSAGE" value="Histoire 16" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
