@@ -1,15 +1,32 @@
 'use strict';
 
-var Engine = function () {
+var Engine = function (size) {
 
     var nbMarbles = 0;
     var playerWhitePlay = true;
+    var gameArea;
+    /*S for normal game board, XL for big game board*/
+    if (size == "S") {
+         gameArea = new Array(6);
+        for (var i = 0; i < gameArea.length; i++) {
+            gameArea[i] = new Array(6);
+            for (var j = 0; j < 6; j++) {
+                gameArea[i][j] = "X";
+            }
+        }
+    }
 
-    var gameArea = new Array(6);
-    for(var i = 0; i < gameArea.length ; i++)
-    {   gameArea[i] = new Array(6);
-        for(var j = 0; j < 6 ; j++)
-        { gameArea[i][j] = "X";}
+    if (size =="XL"){
+
+     gameArea = new Array(9);
+        for (var i = 0; i<gameArea.length;i++)
+        {
+            gameArea[i]= new Array(9);
+           for (var j = 0; j<9;j++)
+           {gameArea[i][j] = "X";}
+
+        }
+
     }
 
     this.getGameArea = function(){
@@ -162,6 +179,17 @@ var Engine = function () {
        else {console.log("aucune diagonale de trouvé");}
      return win;
     };
+
+
+    /* Only for XL game board */
+    var xlBeginner;
+    this.gamerXl = function(nbplayer,choices){
+        var list = new Array(nbplayer);
+        if (nbplayer == 4){list =["R", "Y", "G", "B"]; xlBeginner = list[0];}
+        if (nbplayer == 3){list= choices.split(","); xlBeginner = list[0];}
+        console.log(xlBeginner);
+        return xlBeginner;
+    }
 
 };
 

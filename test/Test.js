@@ -2,7 +2,7 @@
 'use strict';
 
 var PalettoTestCase = TestCase("PalettoTestCase");
-var engineTest = new Engine();
+var engineTest = new Engine("S");
 
 PalettoTestCase.prototype.testStory1 = function () {
 
@@ -116,7 +116,7 @@ PalettoTestCase.prototype.testStory11 = function() {
 }
 
 // on recommence une partie
-var engineTest2 = new Engine();
+var engineTest2 = new Engine("S");
 
 PalettoTestCase.prototype.testStory12 = function(){
    var board = engineTest2.getGameArea();
@@ -145,7 +145,7 @@ PalettoTestCase.prototype.testStory12 = function(){
 }
 
 //on recommence encore une partie
-var engineTest3 = new Engine();
+var engineTest3 = new Engine("S");
 PalettoTestCase.prototype.testStory13 = function(){
 
     assertTrue(engineTest3.beginner() == "B");
@@ -153,7 +153,7 @@ PalettoTestCase.prototype.testStory13 = function(){
 }
 
 //on recommence encore une partie
-var engineTest5 = new Engine();
+var engineTest5 = new Engine("S");
 PalettoTestCase.prototype.testStory14 = function(){
 
     engineTest5.setMarbles(36);
@@ -162,10 +162,20 @@ PalettoTestCase.prototype.testStory14 = function(){
 }
 
 //on recommence encore une partie
-var engineTest4 = new Engine();
+var engineTest4 = new Engine("S");
 PalettoTestCase.prototype.testStory15 = function () {
 
     assertTrue(engineTest4.wrongMarble("B"));
 
 }
+
+
+var engineXl = new Engine("XL");
+PalettoTestCase.prototype.testStory16 = function () {
+   var board = engineXl.getGameArea();
+   assertTrue(board.length == 9);
+   assertTrue(engineXl.gamerXl(4,"")=="R");
+
+}
+
 
