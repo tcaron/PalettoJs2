@@ -189,15 +189,16 @@ var Engine = function (size) {
     this.getXlPlayer = function(){
         console.log(xlPlayer);
         return xlPlayer;
-    }
+    };
+
     this.gamerXl = function(nbplayer,choices){
         listPlayers = new Array(nbplayer);
         if (nbplayer == 4){listPlayers =["R", "Y", "G", "B"]; xlBeginner = listPlayers[0];}
-        if (nbplayer == 3){listPlayers= choices.split(","); xlBeginner = listPlayers[0];}
+        if (nbplayer == 3 ||  nbplayer ==2){listPlayers= choices.split(","); xlBeginner = listPlayers[0];}
         console.log(xlBeginner);
         xlPlayer = xlBeginner;
         return xlBeginner;
-    }
+    };
 
     this.nextGamerXl = function(){
 
@@ -205,7 +206,45 @@ var Engine = function (size) {
         xlPlayer = listPlayers[nPlayer+1];
         return xlPlayer;
 
-    }
+    };
+
+    this.randomPlay = function(size){
+
+        var gameArea2 ;
+        if (size == "classique"){
+
+            gameArea2 = new Array(6);
+        for (var i=0;i<gameArea2.length;i++){gameArea2[i]=new Array(9);
+            for (var j =0; j<gameArea2[i].length;j++){gameArea2[i][j]="X";} }
+        }
+        if (size == "XL"){
+            gameArea2 = new Array(9);
+            for (var i=0;i<gameArea2.length;i++){gameArea2[i]=new Array(9);
+                for (var j =0; j<gameArea2[i].length;j++){gameArea2[i][j]="X";} }
+        }
+
+         var min = Math.ceil(0);
+         var max = Math.floor(gameArea2.length-1);
+         var random = Math.floor(Math.random() * (max - min)) + min;
+         var min2= Math.ceil(0);
+         var max2 = Math.floor(gameArea2[random].length-1);
+         var random2 = Math.floor(Math.random() * (max - min)) + min;
+
+        if (gameArea2[random][random2]=="X"){
+
+            gameArea2[random][random2] = xlPlayer ;
+            nbMarbles++;
+
+        }
+
+        else { this.randomPlay(size);}
+
+
+
+
+    };
+
+
 
 };
 

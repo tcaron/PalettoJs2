@@ -202,4 +202,21 @@ PalettoTestCase.prototype.testStory18 = function(){
 
 }
 
+var engineXl3 = new Engine("XL");
+PalettoTestCase.prototype.testStory19 = function(){
 
+    engineXl3.gamerXl(2,"BLANC,NOIR");
+    engineXl3.randomPlay("classique");
+    assertTrue(engineXl3.getMarbles() == 1);
+
+}
+
+var engineXl4 = new Engine("XL");
+
+PalettoTestCase.prototype.testStory20 = function(){
+
+    engineXl4.gamerXl(4,"");
+    engineXl4.randomPlay("XL");
+    assertTrue(engineXl4.getMarbles() == 1);
+
+}
