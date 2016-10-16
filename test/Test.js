@@ -179,3 +179,27 @@ PalettoTestCase.prototype.testStory16 = function () {
 }
 
 
+PalettoTestCase.prototype.testStory17 = function(){
+
+     assertTrue(engineXl.getXlPlayer() == "R");
+     engineXl.nextGamerXl();
+     assertTrue(engineXl.getXlPlayer() == "Y");
+     engineXl.nextGamerXl();
+     assertTrue(engineXl.getXlPlayer() == "G");
+     engineXl.nextGamerXl();
+    assertTrue(engineXl.getXlPlayer() == "B");
+}
+
+var engineXl2 = new Engine("XL")
+PalettoTestCase.prototype.testStory18 = function(){
+
+     engineXl2.gamerXl(3,"Rouge,Blanc,Bleu");
+     assertTrue(engineXl2.getXlPlayer() == "Rouge");
+     engineXl2.nextGamerXl()
+     assertTrue(engineXl2.getXlPlayer() == "Blanc");
+     engineXl2.nextGamerXl()
+     assertTrue(engineXl2.getXlPlayer() == "Bleu");
+
+}
+
+

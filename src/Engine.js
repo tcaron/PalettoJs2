@@ -183,12 +183,28 @@ var Engine = function (size) {
 
     /* Only for XL game board */
     var xlBeginner;
+    var xlPlayer;
+    var listPlayers;
+
+    this.getXlPlayer = function(){
+        console.log(xlPlayer);
+        return xlPlayer;
+    }
     this.gamerXl = function(nbplayer,choices){
-        var list = new Array(nbplayer);
-        if (nbplayer == 4){list =["R", "Y", "G", "B"]; xlBeginner = list[0];}
-        if (nbplayer == 3){list= choices.split(","); xlBeginner = list[0];}
+        listPlayers = new Array(nbplayer);
+        if (nbplayer == 4){listPlayers =["R", "Y", "G", "B"]; xlBeginner = listPlayers[0];}
+        if (nbplayer == 3){listPlayers= choices.split(","); xlBeginner = listPlayers[0];}
         console.log(xlBeginner);
+        xlPlayer = xlBeginner;
         return xlBeginner;
+    }
+
+    this.nextGamerXl = function(){
+
+        var nPlayer = listPlayers.indexOf(xlPlayer);
+        xlPlayer = listPlayers[nPlayer+1];
+        return xlPlayer;
+
     }
 
 };
